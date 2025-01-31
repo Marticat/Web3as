@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MongoDB CRUD App</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h2>User Management</h2>
+
+    <!-- User Input Form -->
+    <form id="userForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="number" id="age" placeholder="Age" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <button type="submit">Add User</button>
+    </form>
+
+    <!-- Search & Sorting Controls -->
+    <div class="controls">
+        <input type="text" id="search" placeholder="Search by name">
+        <button onclick="fetchUsers()">Search</button>
+
+        <select id="sort">
+            <option value="name-asc">Sort by Name (A-Z)</option>
+            <option value="name-desc">Sort by Name (Z-A)</option>
+            <option value="age-asc">Sort by Age (Youngest First)</option>
+            <option value="age-desc">Sort by Age (Oldest First)</option>
+        </select>
+    </div>
+
+    <!-- User Data Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="userTable"></tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <div class="pagination">
+        <button id="prevPage" onclick="changePage(-1)">Previous</button>
+        <span id="pageInfo">Page 1</span>
+        <button id="nextPage" onclick="changePage(1)">Next</button>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
